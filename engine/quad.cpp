@@ -4,32 +4,34 @@ Quad::Quad()
 {
 	glGenBuffers(1, &VBO);
 
-	Vertex* myShape = new Vertex[3];
-	myShape[0].fPositions[0] = 1024 / 2.0;
+	Vertex* myShape = new Vertex[4];
+	myShape[0].fPositions[0] = 1024 / 2.0 + 10;
 	myShape[0].fPositions[1] = 720 / 2.0 + 10;
 	myShape[1].fPositions[0] = 1024 / 2.0 - 10.0;
 	myShape[1].fPositions[1] = 720 / 2.0 - 10.0f;
 	myShape[2].fPositions[0] = 1024 / 2.0 + 10.0f;
 	myShape[2].fPositions[1] = 720 / 2.0 - 10.0f;
-	for (int i = 0; i < 3; i++)
+	myShape[3].fPositions[0] = 1024 / 2.0 - 10.0f;
+	myShape[3].fPositions[1] = 720 / 2.0 + 10.0f;
+	for (int i = 0; i < 4; i++)
 	{
 		myShape[i].fPositions[2] = 0.0f;
 		myShape[i].fPositions[3] = 1.0f;
 		myShape[i].fColours[0] = 1.0f;
 		myShape[i].fColours[1] = 1.0f;
-		myShape[i].fColours[2] = 0.0f;
-		myShape[i].fColours[3] = 0.5f;
+		myShape[i].fColours[2] = 1.0f;
+		myShape[i].fColours[3] = 0.0f;
 	}
 
 	if (VBO != 0)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)* 3, NULL, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)* 4, NULL, GL_STATIC_DRAW);
 
 		//allocate space on graphics card
 		GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
 		// copy data to graphics card
-		memcpy(vBuffer, myShape, sizeof(Vertex)* 3);
+		memcpy(vBuffer, myShape, sizeof(Vertex)* 4);
 		glUnmapBuffer(GL_ARRAY_BUFFER);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
@@ -72,7 +74,7 @@ void Quad::Draw()
 	//send our orthographic projection info to the shader
 	glUniformMatrix4fv(MatrixIDFlat, 1, GL_FALSE, orthographicProjection);
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glDrawArrays(GL_QUADS, 0, 4);
 	//glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_BYTE, NULL);
 }
 
