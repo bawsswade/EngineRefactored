@@ -22,16 +22,18 @@ class Quad
 {
 public:
 	Quad();
-	GLuint uiProgramFlat, MatrixIDFlat;
+	GLuint uiProgramFlat, MatrixIDFlat, uiProgramTextured;
+	GLuint uiTextureId;
 	GLuint VBO;
 	void Draw();
 	float *orthographicProjection;
-
+	void SetTexture(const char* filename);
 	~Quad(){};
 private:
 	GLuint CreateShader(GLenum a_eShaderType, const char *a_strShaderFile);
 	GLuint CreateProgram(const char *a_vertex, const char *a_frag);
 	float* getOrtho(float left, float right, float bottom, float top, float a_fNear, float a_fFar);
+	unsigned int loadTexture(const char* a_pFilename, int & a_iWidth, int & a_iHeight, int & a_iBPP);
 };
 
 #endif // !_QUAD_H_

@@ -26,6 +26,7 @@ int main()
 	}
 
 	Quad *rect = new Quad;
+	rect->SetTexture("test.jpg");
 
 	//loop until window closes
 	while (!glfwWindowShouldClose(window))
