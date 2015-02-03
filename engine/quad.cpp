@@ -206,10 +206,10 @@ float* Quad::getOrtho(float left, float right, float bottom, float top, float a_
 	return toReturn;
 }
 
-void Quad::SetTexture(const char* filename)
+void Quad::CreateSprite(const char* filename)
 {
 	int width = 50, height = 50, bpp = 4;  //default size
-	uiTextureId = this->loadTexture(filename, width, height, bpp);
+	this->uiTextureId = this->loadTexture(filename, width, height, bpp);
 }
 
 unsigned int Quad::loadTexture(const char* a_pFilename, int & a_iWidth, int & a_iHeight, int & a_iBPP)
