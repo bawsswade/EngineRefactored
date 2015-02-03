@@ -1,10 +1,10 @@
 #ifndef _QUAD_H_
 #define _QUAD_H_
 
-#include <glew.h>
-#include <wglew.h>
-#include <glfw3.h>
-#include <SOIL.h>
+#include <GL\glew.h>
+#include <GL\wglew.h>
+#include <GLFW\glfw3.h>
+#include <SOIL\SOIL.h>
 #include <iostream>
 
 #include <vector>
@@ -24,8 +24,10 @@ public:
 	Quad();
 	void Draw();
 	void CreateSprite(const char* filename);
+	void SetUVs(unsigned int spriteId, float topX, float topY, float bottomX, float bottomY);
 	~Quad(){};
 private:
+	Vertex* myShape;
 	GLuint uiProgramFlat, MatrixIDFlat, uiProgramTextured;
 	GLuint uiTextureId;
 	GLuint VBO;

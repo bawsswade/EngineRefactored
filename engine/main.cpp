@@ -27,6 +27,7 @@ int main()
 
 	Quad *rect = new Quad;
 	rect->CreateSprite("smile.png");
+	//rect->SetUVs(uiTextureId, 0, 1, 0.5f, 0);
 
 	//loop until window closes
 	while (!glfwWindowShouldClose(window))

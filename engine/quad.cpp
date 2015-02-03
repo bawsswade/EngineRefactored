@@ -4,7 +4,7 @@ Quad::Quad()
 {
 	glGenBuffers(1, &VBO);
 
-	Vertex* myShape = new Vertex[4];
+	myShape = new Vertex[4];
 	myShape[0].fPositions[0] = 1024 / 2.0 + 100;
 	myShape[0].fPositions[1] = 720 / 2.0 + 100;
 	myShape[1].fPositions[0] = 1024 / 2.0 + 100.0;
@@ -238,4 +238,27 @@ unsigned int Quad::loadTexture(const char* a_pFilename, int & a_iWidth, int & a_
 		}
 		return uiTextureID;
 	}
+}
+
+void Quad::SetUVs(unsigned int spriteId, float topX, float topY, float bottomX, float bottomY)
+{
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)* 4, NULL, GL_STATIC_DRAW);
+
+	myShape[0].fUVs[0] = bottomX; //top right
+	myShape[0].fUVs[1] = topY;
+	myShape[1].fUVs[0] = bottomX; //bottom right
+	myShape[1].fUVs[1] = bottomY;
+	myShape[2].fUVs[0] = topX; //bottom left
+	myShape[2].fUVs[1] = bottomY;
+	myShape[3].fUVs[0] = topX; //top left
+	myShape[3].fUVs[1] = topY;
+
+
+	//allocate space on graphics card
+	GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	// copy data to graphics card 
+	memcpy(vBuffer, myShape, sizeof(Vertex)* 4);
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
