@@ -71,9 +71,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="quad.cpp" />
+    <ClCompile Include="Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="quad.h" />
+    <ClInclude Include="Sprite.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FlatFragmentShader.glsl" />

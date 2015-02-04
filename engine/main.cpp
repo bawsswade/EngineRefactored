@@ -25,18 +25,22 @@ int main()
 		return -1;
 	}
 
+
+	Orthographic(0.f, (float)1024, (float)720, 0.f, -1.f, 1.f, Ortho);
+
 	Quad *rect = new Quad;
-	rect->CreateSprite("smile.png");
+
+	//rect->CreateSprite("smile.png");
 	//rect->SetUVs(uiTextureId, 0, 1, 0.5f, 0);
 
 	//loop until window closes
 	while (!glfwWindowShouldClose(window))
 	{
 		//DRAW SHIT!
-		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+		glClearColor(0.1f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		rect->Draw();
+		rect->DrawSprite();
 
 		//spaw front and back buffers
 		glfwSwapBuffers(window);
