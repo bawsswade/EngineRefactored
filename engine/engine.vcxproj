@@ -39,8 +39,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\wade.gushikuma\Documents\GitHub\engine\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\wade.gushikuma\Documents\GitHub\engine\libs\glew-1.11.0\lib\Release\Win32;C:\Users\wade.gushikuma\Documents\GitHub\engine\libs\glfw-3.0.4.bin.WIN32\lib-msvc120;C:\Users\wade.gushikuma\Documents\GitHub\engine\libs\Simple OpenGL Image Library\projects\VC9\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -51,7 +51,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32s.lib;opengl32.lib;glfw3.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -71,9 +71,15 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="quad.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="quad.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Text.h" />
+    <ClInclude Include="tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FlatFragmentShader.glsl" />

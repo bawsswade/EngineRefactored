@@ -4,37 +4,51 @@ Quad::Quad()
 {
 	glGenBuffers(1, &VBO);
 
-	Vertex* myShape = new Vertex[3];
-	myShape[0].fPositions[0] = 1024 / 2.0;
-	myShape[0].fPositions[1] = 720 / 2.0 + 10;
-	myShape[1].fPositions[0] = 1024 / 2.0 - 10.0;
-	myShape[1].fPositions[1] = 720 / 2.0 - 10.0f;
-	myShape[2].fPositions[0] = 1024 / 2.0 + 10.0f;
-	myShape[2].fPositions[1] = 720 / 2.0 - 10.0f;
-	for (int i = 0; i < 3; i++)
+
+	//myShape = new Vertex[4];
+	myShape[0].fPositions[0] = 1024 / 2.0 + 100;
+	myShape[0].fPositions[1] = 720 / 2.0 + 100;
+	myShape[1].fPositions[0] = 1024 / 2.0 + 100.0;
+	myShape[1].fPositions[1] = 720 / 2.0 - 100.0f;
+	myShape[2].fPositions[0] = 1024 / 2.0 - 100.0f;
+	myShape[2].fPositions[1] = 720 / 2.0 - 100.0f;
+	myShape[3].fPositions[0] = 1024 / 2.0 - 100.0f;
+	myShape[3].fPositions[1] = 720 / 2.0 + 100.0f;
+	for (int i = 0; i < 4; i++)
 	{
 		myShape[i].fPositions[2] = 0.0f;
 		myShape[i].fPositions[3] = 1.0f;
 		myShape[i].fColours[0] = 1.0f;
 		myShape[i].fColours[1] = 1.0f;
-		myShape[i].fColours[2] = 0.0f;
-		myShape[i].fColours[3] = 0.5f;
+		myShape[i].fColours[2] = 1.0f;
+		myShape[i].fColours[3] = 1.0f;
 	}
-
+	//set up the UVs
+	myShape[0].fUVs[0] = 1.0f; //top right
+	myShape[0].fUVs[1] = 1.0f;
+	myShape[1].fUVs[0] = 1.0f; //bottom right
+	myShape[1].fUVs[1] = 0.0f;
+	myShape[2].fUVs[0] = 0.0f; //bottom left
+	myShape[2].fUVs[1] = 0.0f;
+	myShape[3].fUVs[0] = 0.0f; //top left
+	myShape[3].fUVs[1] = 1.0f;
 	if (VBO != 0)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)* 3, NULL, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)* 4, NULL, GL_STATIC_DRAW);
 
 		//allocate space on graphics card
 		GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
 		// copy data to graphics card
-		memcpy(vBuffer, myShape, sizeof(Vertex)* 3);
+		memcpy(vBuffer, myShape, sizeof(Vertex)* 4);
 		glUnmapBuffer(GL_ARRAY_BUFFER);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 	//create shader program
 	uiProgramFlat = CreateProgram("VertexShader.glsl", "FlatFragmentShader.glsl");
+
+	//create texture program
+	uiProgramTextured = CreateProgram("VertexShader.glsl", "TexturedFragmentShader.glsl");
 
 	//find the position of the matrix variable in the shader so we can send info there later
 	MatrixIDFlat = glGetUniformLocation(uiProgramFlat, "MVP");
@@ -42,7 +56,7 @@ Quad::Quad()
 	//set up the mapping of the screen to pixel co-ordinates.
 	orthographicProjection = getOrtho(0, 1024, 0, 720, 0, 100);
 
-	
+
 
 	//glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
@@ -50,16 +64,19 @@ Quad::Quad()
 void Quad::Draw()
 {
 	//enable shaders
-	glUseProgram(uiProgramFlat);
-	//glUseProgram(uiProgramTextured);
+	//glUseProgram(uiProgramFlat);
+	glUseProgram(uiProgramTextured);
+
+	//send our orthographic projection info to the shader
+	glUniformMatrix4fv(MatrixIDFlat, 1, GL_FALSE, orthographicProjection);
 
 	//enable the vertex array state, since we're sending in an array of vertices
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
-	//glEnableVertexAttribArray(2);
+	glEnableVertexAttribArray(2);
 
 	// bindings: vbo, ibo, texture
-	//glBindTexture(GL_TEXTURE_2D, uiTextureId);
+	glBindTexture(GL_TEXTURE_2D, uiTextureId);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
 
@@ -67,13 +84,13 @@ void Quad::Draw()
 	//the data type of each component and whether the data is normalised or not
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);  // position
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(float)* 4));  // color
-	//glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(float)* 8));  // texture UVs
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(float)* 8));  // texture UVs
 
-	//send our orthographic projection info to the shader
-	glUniformMatrix4fv(MatrixIDFlat, 1, GL_FALSE, orthographicProjection);
+	glDrawArrays(GL_QUADS, 0, 4);
+	//glDrawElements(GL_QUADS, 4, GL_UNSIGNED_BYTE, NULL);
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
-	//glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_BYTE, NULL);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 
@@ -189,3 +206,8 @@ float* Quad::getOrtho(float left, float right, float bottom, float top, float a_
 	toReturn[15] = 1;
 	return toReturn;
 }
+
+
+
+
+
