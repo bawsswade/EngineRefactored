@@ -12,8 +12,8 @@ const int MAXTEXT = 256;
 struct TextSheet
 {
 	float width, height;  //size
-	int x, y;             //position on sheet
-	int cID;              //ascii num
+	float x, y;             //position on sheet
+	//int cID;              //ascii num
 };
 
 class TextFont
@@ -26,11 +26,13 @@ public:
 	
 	void LoadDoc(const char* a_filename);
 	void DrawString(char letters, float x, float y);
-
+	
 	TextSheet sheet[MAXTEXT];
 	~TextFont(){};
 private:
 	const char* filename;
+	int sheetW, sheetH;
+	
 };
 
 
