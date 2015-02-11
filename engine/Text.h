@@ -13,7 +13,6 @@ struct TextSheet
 {
 	float width, height;  //size
 	float x, y;             //position on sheet
-	//int cID;              //ascii num
 };
 
 class TextFont
@@ -22,12 +21,12 @@ public:
 	TextFont(){};
 	Quad arrSprite[MAXSPRITES];
 
-	Sprite test;
+	Sprite textSprite;
 	
 	void LoadDoc(const char* a_filename);
 	void DrawString(char letters, float x, float y);
 	
-	TextSheet sheet[MAXTEXT];
+	TextSheet sheet[MAXTEXT]; //arr ID = ascii number
 	~TextFont(){};
 private:
 	const char* filename;

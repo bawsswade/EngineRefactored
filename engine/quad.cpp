@@ -1,46 +1,50 @@
 #include "quad.h"
 
+int width, height;
+GLFWwindow* window;
+glm::mat4 Ortho;
+
 Quad::Quad()
 {
 	glGenBuffers(1, &VBO);
 
 
 	//myShape = new Vertex[4];
-	myShape[0].fPositions[0] = 1024 / 2.0 + 100;
-	myShape[0].fPositions[1] = 720 / 2.0 + 100;
-	myShape[1].fPositions[0] = 1024 / 2.0 + 100.0;
-	myShape[1].fPositions[1] = 720 / 2.0 - 100.0f;
-	myShape[2].fPositions[0] = 1024 / 2.0 - 100.0f;
-	myShape[2].fPositions[1] = 720 / 2.0 - 100.0f;
-	myShape[3].fPositions[0] = 1024 / 2.0 - 100.0f;
-	myShape[3].fPositions[1] = 720 / 2.0 + 100.0f;
+	this->rect[0].fPositions[0] = 1024 / 2.0 + 10;
+	this->rect[0].fPositions[1] = 720 / 2.0 + 10;
+	this->rect[1].fPositions[0] = 1024 / 2.0 + 10.0;
+	this->rect[1].fPositions[1] = 720 / 2.0 - 10.0f;
+	this->rect[2].fPositions[0] = 1024 / 2.0 - 10.0f;
+	this->rect[2].fPositions[1] = 720 / 2.0 - 10.0f;
+	this->rect[3].fPositions[0] = 1024 / 2.0 - 10.0f;
+	this->rect[3].fPositions[1] = 720 / 2.0 + 10.0f;
 	for (int i = 0; i < 4; i++)
 	{
-		myShape[i].fPositions[2] = 0.0f;
-		myShape[i].fPositions[3] = 1.0f;
-		myShape[i].fColours[0] = 1.0f;
-		myShape[i].fColours[1] = 1.0f;
-		myShape[i].fColours[2] = 1.0f;
-		myShape[i].fColours[3] = 1.0f;
+		this->rect[i].fPositions[2] = 0.0f;
+		this->rect[i].fPositions[3] = 1.0f;
+		this->rect[i].fColours[0] = 1.0f;
+		this->rect[i].fColours[1] = 1.0f;
+		this->rect[i].fColours[2] = 1.0f;
+		this->rect[i].fColours[3] = 1.0f;
 	}
 	//set up the UVs
-	myShape[0].fUVs[0] = 1.0f; //top right
-	myShape[0].fUVs[1] = 1.0f;
-	myShape[1].fUVs[0] = 1.0f; //bottom right
-	myShape[1].fUVs[1] = 0.0f;
-	myShape[2].fUVs[0] = 0.0f; //bottom left
-	myShape[2].fUVs[1] = 0.0f;
-	myShape[3].fUVs[0] = 0.0f; //top left
-	myShape[3].fUVs[1] = 1.0f;
+	this->rect[0].fUVs[0] = 1.0f; //top right
+	this->rect[0].fUVs[1] = 1.0f;
+	this->rect[1].fUVs[0] = 1.0f; //bottom right
+	this->rect[1].fUVs[1] = 0.0f;
+	this->rect[2].fUVs[0] = 0.0f; //bottom left
+	this->rect[2].fUVs[1] = 0.0f;
+	this->rect[3].fUVs[0] = 0.0f; //top left
+	this->rect[3].fUVs[1] = 1.0f;
 	if (VBO != 0)
 	{
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)* 4, NULL, GL_STATIC_DRAW);
 
 		//allocate space on graphics card
 		GLvoid* vBuffer = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
 		// copy data to graphics card
-		memcpy(vBuffer, myShape, sizeof(Vertex)* 4);
+		memcpy(vBuffer, this->rect, sizeof(Vertex)* 4);
 		glUnmapBuffer(GL_ARRAY_BUFFER);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
@@ -56,7 +60,7 @@ Quad::Quad()
 	//set up the mapping of the screen to pixel co-ordinates.
 	orthographicProjection = getOrtho(0, 1024, 0, 720, 0, 100);
 
-
+	
 
 	//glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
@@ -67,8 +71,18 @@ void Quad::Draw()
 	//glUseProgram(uiProgramFlat);
 	glUseProgram(uiProgramTextured);
 
+
+	//make an identity matrix
+	glm::mat4 IdentityM = glm::mat4(1.0);
+
+	View = glm::translate(glm::mat4(), glm::vec3((float)width / 2, (float)height / 2, 1));
+	Model = glm::scale(glm::mat4(), glm::vec3(50, 50, 1));
+
+	MVP = Ortho * View * Model;
+
 	//send our orthographic projection info to the shader
 	glUniformMatrix4fv(MatrixIDFlat, 1, GL_FALSE, orthographicProjection);
+	//glUniformMatrix4fv(MatrixIDFlat, 1, GL_FALSE, glm::value_ptr(MVP));
 
 	//enable the vertex array state, since we're sending in an array of vertices
 	glEnableVertexAttribArray(0);
@@ -77,7 +91,7 @@ void Quad::Draw()
 
 	// bindings: vbo, ibo, texture
 	glBindTexture(GL_TEXTURE_2D, uiTextureId);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
 	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
 
 	//specify where our vertex array is, how many components each vertex has, 
@@ -207,7 +221,62 @@ float* Quad::getOrtho(float left, float right, float bottom, float top, float a_
 	return toReturn;
 }
 
+void Initialize(const char* windowTitle, int windowWidth, int windowHeight)
+{
+	height = windowHeight;
+	width = windowWidth;
+	//Initialize GLFW
+	if (!glfwInit())
+		glfwTerminate();
 
+	//create window 
+	//GLFWwindow* window;
+	window = glfwCreateWindow(windowWidth, windowHeight, windowTitle, NULL, NULL);
+	if (!window)
+	{
+		glfwTerminate();
+	}
 
+	//make  window's context current
+	glfwMakeContextCurrent(window);
 
+	if (glewInit() != GLEW_OK)
+	{
+		//ohh no it didnt start up!
+		glfwTerminate();
+	}
+}
 
+bool FrameworkUpdate()
+{
+	return glfwWindowShouldClose(window);
+}
+
+void Orthographic(float a_fLeft, float a_fRight, float a_fTop, float a_fBottom, float a_fNear, float a_fFar, glm::mat4 & mat)
+{
+
+	float deltaX = a_fRight - a_fLeft;
+	float deltaY = a_fTop - a_fBottom;
+	float deltaZ = a_fNear - a_fFar;
+
+	mat[0].x = 2.f / deltaX;
+	mat[0].y = 0.f;
+	mat[0].z = 0.f;
+	mat[0].w = 0.f;
+
+	mat[1].x = 0.f;
+	mat[1].y = 2.f / deltaY;
+	mat[1].z = 0.f;
+	mat[1].w = 0.f;
+
+	mat[2].x = 0.f;
+	mat[2].y = 0.f;
+	mat[2].z = 2.f / deltaZ;
+	mat[2].w = 0.f;
+
+	mat[3].x = ((a_fLeft + a_fRight) / (a_fLeft - a_fRight));
+	mat[3].y = ((a_fBottom + a_fTop) / (a_fBottom - a_fTop));
+	mat[3].z = (-(a_fNear + a_fFar) / (a_fFar - a_fNear));
+	mat[3].w = 1.f;
+
+}
