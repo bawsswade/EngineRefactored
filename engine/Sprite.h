@@ -10,6 +10,8 @@ public:
 	Quad SpriteQuad;
 	void CreateSprite(const char* filename);
 	void SetUVs(unsigned int spriteId, float topX, float topY, float bottomX, float bottomY);
+	void Draw();
+	void MoveSprite(float x, float y);
 
 	~Sprite(){};
 private:

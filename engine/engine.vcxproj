@@ -69,6 +69,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="quad.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -76,6 +77,7 @@
     <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animator.h" />
     <ClInclude Include="quad.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Text.h" />

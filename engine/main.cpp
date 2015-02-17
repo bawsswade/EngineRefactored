@@ -1,20 +1,24 @@
 #include "quad.h"
 #include "Sprite.h"
 #include "Text.h"
+#include "Animator.h"
 
 int main()
 {
 	Initialize("Test", 1024.0f, 720.0f);
 	Orthographic(0.f, (float)width, (float)height, 0.f, -1.f, 1.f, Ortho);
 
-	Sprite *testSprite = new Sprite;
+	//Sprite w/UVS
+	Sprite s;
+	s.CreateSprite("smile.png");
+	s.SetUVs(s.SpriteQuad.uiTextureId, 0, 1, 0.5f, 0.5f); 
 
-	//testSprite->CreateSprite("smile.png");
-	//testSprite->SetUVs(testSprite->SpriteQuad.uiTextureId, 0, 1, 0.5f, 0.5f); 
-	/*Quad *rect = new Quad;
-	rect->CreateSprite("smile.png");
-	rect->SetUVs(rect->uiTextureId, 0, 1, 0.5f, 0);*/
-	
+	//Animation
+	Animator a;
+	a.LoadAtlas("MegamanXSheet.xml");
+	a.SetSprites(11, 20);
+
+	//Text
 	TextFont text;
 	text.LoadDoc("textfont.xml");
 	
@@ -25,8 +29,9 @@ int main()
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		//testSprite->SpriteQuad.Draw();
-		text.DrawString('W', 1, 2);
+		s.Draw();
+		//text.DrawString('W', 1, 2);
+		//a.Draw();
 
 		//spaw front and back buffers
 		glfwSwapBuffers(window);

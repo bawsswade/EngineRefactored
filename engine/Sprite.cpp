@@ -56,3 +56,13 @@ void Sprite::loadTexture(const char* a_pFilename, int & a_iWidth, int & a_iHeigh
 		//return Shape.uiTextureId;
 	}
 }
+
+void Sprite::Draw()
+{
+	this->SpriteQuad.Draw();
+}
+
+void Sprite::MoveSprite(float x, float y)
+{
+
+}
