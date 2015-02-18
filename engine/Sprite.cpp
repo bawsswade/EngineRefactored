@@ -75,3 +75,38 @@ void Sprite::MoveSprite(float x, float y)
 	//save to VBO
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)* 4, this->SpriteQuad.rect, GL_STATIC_DRAW);
 }
+
+void Sprite::ScaleSprite(float x, float y)
+{
+	glBindBuffer(GL_ARRAY_BUFFER, this->SpriteQuad.VBO);
+
+	/*for (int i = 0; i < 4; i++)
+	{
+		this->SpriteQuad.rect[i].fPositions[0] *= x;
+		this->SpriteQuad.rect[i].fPositions[1] *= y;
+	}*/
+	float newX = x * (this->SpriteQuad.rect[0].fPositions[0] - this->SpriteQuad.rect[2].fPositions[0]) + this->SpriteQuad.rect[2].fPositions[0];
+	float newY = y * (this->SpriteQuad.rect[0].fPositions[1] - this->SpriteQuad.rect[2].fPositions[1]) + this->SpriteQuad.rect[2].fPositions[1];
+
+	this->SpriteQuad.rect[0].fPositions[0] = newX;
+	this->SpriteQuad.rect[0].fPositions[1] = newY;
+	this->SpriteQuad.rect[1].fPositions[0] = newX;
+	this->SpriteQuad.rect[3].fPositions[1] = newY;
+
+	//save to VBO
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)* 4, this->SpriteQuad.rect, GL_STATIC_DRAW);
+}
+
+void Sprite::AdjustSprite()
+{
+	glBindBuffer(GL_ARRAY_BUFFER, this->SpriteQuad.VBO);
+	this->SpriteQuad.rect[0].fPositions[0] = 1024 / 2.0 + 10;
+	this->SpriteQuad.rect[0].fPositions[1] = 720 / 2.0 + 10;
+	this->SpriteQuad.rect[1].fPositions[0] = 1024 / 2.0 + 10.0;
+	this->SpriteQuad.rect[1].fPositions[1] = 720 / 2.0 - 10.0f;
+	this->SpriteQuad.rect[2].fPositions[0] = 1024 / 2.0 - 10.0f;
+	this->SpriteQuad.rect[2].fPositions[1] = 720 / 2.0 - 10.0f;
+	this->SpriteQuad.rect[3].fPositions[0] = 1024 / 2.0 - 10.0f;
+	this->SpriteQuad.rect[3].fPositions[1] = 720 / 2.0 + 10.0f;
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)* 4, this->SpriteQuad.rect, GL_STATIC_DRAW);
+}

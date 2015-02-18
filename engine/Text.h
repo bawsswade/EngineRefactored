@@ -38,7 +38,7 @@ public:
 	~TextFont(){};
 private:
 	int strsize;
-	float offset = 0;
+	float offset = -10;
 	int sheetW, sheetH;
 	char c[15];
 	int ascii[15];

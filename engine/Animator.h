@@ -7,7 +7,7 @@
 const int MAXSPRITE = 30;
 
 
-struct Sprites
+struct SpriteData
 {
 	unsigned int id;
 	float x0, y0, x1, y1; //uvs
@@ -25,7 +25,7 @@ class Animator
 {
 public:
 	Animator(){};
-	Sprites spriteList[MAXSPRITE];
+	SpriteData spriteList[MAXSPRITE];
 	Sprite AniSprites;
 
 	void LoadAtlas(const char* a_filename);

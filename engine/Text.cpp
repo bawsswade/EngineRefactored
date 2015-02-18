@@ -45,13 +45,15 @@ void TextFont::CreateString(string letters, float x, float y)
 		ascii[i] = (int)c[i];
 		this->textSprite[i].CreateSprite(filename);
 		this->textSprite[i].SetUVs(this->textSprite[i].SpriteQuad.uiTextureId, sheet[ascii[i]].x / sheetW, (sheetH - sheet[ascii[i]].y) / sheetH, ((sheet[ascii[i]].x + sheet[ascii[i]].width)) / sheetW, ((sheetH - sheet[ascii[i]].y) - sheet[ascii[i]].height) / sheetH);
+		this->textSprite[i].ScaleSprite(this->sheet[ascii[i]].width * 0.1f, this->sheet[ascii[i]].height * 0.1f);
 		if (i > 0)
 		{
-			//offset += 50.0f;
-			offset += this->sheet[ascii[i]].width + (this->sheet[ascii[i - 1]].width /2);
-			this->textSprite[i].MoveSprite(offset, 0);
+			offset += this->sheet[ascii[i]].width + (this->sheet[ascii[i - 1]].width);
 		}
+		this->textSprite[i].MoveSprite(offset + x, y);
+		
 	}
+	
 	//optimize for mult letters
 	//int asciiNum = (int)letters;
 	//this->textSprite.SetUVs(this->textSprite.SpriteQuad.uiTextureId, sheet[asciiNum].x / sheetW, (sheetH - sheet[asciiNum].y) / sheetH, ((sheet[asciiNum].x + sheet[asciiNum].width)) / sheetW, ((sheetH - sheet[asciiNum].y) - sheet[asciiNum].height) / sheetH);

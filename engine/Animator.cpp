@@ -38,6 +38,10 @@ void Animator::SetSprites(int startIndex, int endIndex)
 	startFrame = startIndex;
 	endFrame = endIndex;
 	frame = startFrame;
+	/*for (int i = startFrame; i <= endFrame; i++)
+	{
+	AniSprites.ScaleSprite((spriteList[i].x1 - spriteList[i].x0)*0.1f, (spriteList[i].y1 - spriteList[i].y0)* 0.1f);
+	}*/
 }
 
 void Animator::Draw()
@@ -47,9 +51,12 @@ void Animator::Draw()
 	deltaTime = elapsedTime - previousTime;
 	frameSwitch += deltaTime;
 	AniSprites.SetUVs(spriteList[frame].id, spriteList[frame].x0 / 512.0f, (512.0f - spriteList[frame].y0) / 512.0f, spriteList[frame].x1 / 512.0f, (512.0f - spriteList[frame].y1) / 512.0f);
+	
 	if (frameSwitch > .075f) //fps: controls speed
 	{
 		frame++;
+		AniSprites.AdjustSprite();
+		AniSprites.ScaleSprite((spriteList[frame].x1 - spriteList[frame].x0)*0.1f, (spriteList[frame].y1 - spriteList[frame].y0)* 0.1f);
 		frameSwitch = 0;
 	}
 	if (frame > endFrame)  //loops sprites

@@ -17,6 +17,8 @@ public:
 	void SetUVs(unsigned int spriteId, float topX, float topY, float bottomX, float bottomY);
 	void Draw();
 	void MoveSprite(float x, float y);
+	void ScaleSprite(float x, float y);
+	void AdjustSprite();
 	mat4 position;
 
 	~Sprite(){};
