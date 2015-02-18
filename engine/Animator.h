@@ -31,6 +31,7 @@ public:
 	void LoadAtlas(const char* a_filename);
 	void SetSprites(int startIndex, int endIndex);
 	void Draw();
+	void MoveSprite(int x, int y);
 
 	double deltaTime;
 	double elapsedTime = 0;

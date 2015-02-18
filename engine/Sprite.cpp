@@ -64,5 +64,14 @@ void Sprite::Draw()
 
 void Sprite::MoveSprite(float x, float y)
 {
+	glBindBuffer(GL_ARRAY_BUFFER, this->SpriteQuad.VBO);
 
+	for (int i = 0; i < 4; i++)
+	{
+		this->SpriteQuad.rect[i].fPositions[0] += x;
+		this->SpriteQuad.rect[i].fPositions[1] += y;
+	}
+
+	//save to VBO
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)* 4, this->SpriteQuad.rect, GL_STATIC_DRAW);
 }

@@ -6,8 +6,12 @@
 #include "Sprite.h"
 #include <iostream>
 #include <string>
+#include <map>
 
 const int MAXTEXT = 256;
+//typedef std::string string;
+using std::string;
+using std::map;
 
 struct TextSheet
 {
@@ -19,19 +23,26 @@ class TextFont
 {
 public:
 	TextFont(){};
-	Quad arrSprite[MAXSPRITES];
+	//Quad arrSprite[MAXSPRITES];
 
-	Sprite textSprite;
 	
+	const char* filename;
+
 	void LoadDoc(const char* a_filename);
-	void DrawString(char letters, float x, float y);
+	void DrawString();
+	void CreateString(string letters, float x, float y);
+	void MoveSprite(float x, float y);
 	
-	TextSheet sheet[MAXTEXT]; //arr ID = ascii number
+	map<int, TextSheet> sheet;
+	//TextSheet sheet[MAXTEXT]; //arr ID = ascii number
 	~TextFont(){};
 private:
-	const char* filename;
+	int strsize;
+	float offset = 0;
 	int sheetW, sheetH;
-	
+	char c[15];
+	int ascii[15];
+	Sprite textSprite[15];
 };
 
 

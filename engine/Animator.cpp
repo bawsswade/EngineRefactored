@@ -57,3 +57,8 @@ void Animator::Draw()
 
 	this->AniSprites.SpriteQuad.Draw();
 }
+
+void Animator::MoveSprite(int x, int y)
+{
+	this->AniSprites.MoveSprite(x, y);
+}

@@ -12,15 +12,18 @@ int main()
 	Sprite s;
 	s.CreateSprite("smile.png");
 	s.SetUVs(s.SpriteQuad.uiTextureId, 0, 1, 0.5f, 0.5f); 
+	s.MoveSprite(100.0f, 100.0f);
 
 	//Animation
 	Animator a;
 	a.LoadAtlas("MegamanXSheet.xml");
 	a.SetSprites(11, 20);
+	a.MoveSprite(-100.0f, -100.0f);
 
 	//Text
 	TextFont text;
 	text.LoadDoc("textfont.xml");
+	text.CreateString("Wade", 1, 2);
 	
 	//loop until window closes
 	while (!FrameworkUpdate())
@@ -30,8 +33,8 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		s.Draw();
-		//text.DrawString('W', 1, 2);
-		//a.Draw();
+		text.DrawString();
+		a.Draw();
 
 		//spaw front and back buffers
 		glfwSwapBuffers(window);

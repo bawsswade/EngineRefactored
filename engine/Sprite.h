@@ -2,6 +2,11 @@
 #define _SPRITE_H_
 
 #include "quad.h"
+#include <glm\glm.hpp>
+#include <glm\gtc\matrix_transform.hpp>
+
+typedef glm::mat4 mat4;
+typedef glm::vec3 vec3;
 
 class Sprite
 {
@@ -12,6 +17,7 @@ public:
 	void SetUVs(unsigned int spriteId, float topX, float topY, float bottomX, float bottomY);
 	void Draw();
 	void MoveSprite(float x, float y);
+	mat4 position;
 
 	~Sprite(){};
 private:
