@@ -13,19 +13,20 @@ int main()
 	s.CreateSprite("smile.png");
 	s.SetUVs(s.SpriteQuad.uiTextureId, 0, 1, 0.5f, 0.5f); 
 	s.MoveSprite(100.0f, 100.0f);
-	s.ScaleSprite(2, 10);
+	s.ScaleSprite(5, 5);
 
 	//Animation
 	Animator a;
 	a.LoadAtlas("MegamanXSheet.xml");
 	a.SetSprites(11, 20);
-	a.MoveSprite(-100.0f, -100.0f);
-	//a.AniSprites.ScaleSprite(2, 2);
+	//a.MoveSprite(-200.0f, -200.0f);
+	//a.AniSprites.ScaleSprite(.25f, .25f);
 
 	//Text
 	TextFont text;
 	text.LoadDoc("textfont.xml");
 	text.CreateString("Wade", 10, 50);
+	text.MoveSprite(-100,-200);
 	
 	//loop until window closes
 	while (!FrameworkUpdate())

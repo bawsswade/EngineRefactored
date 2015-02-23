@@ -59,6 +59,14 @@ void Sprite::loadTexture(const char* a_pFilename, int & a_iWidth, int & a_iHeigh
 
 void Sprite::Draw()
 {
+	glEnable(GL_BLEND);
+	//glEnable(GL_ALPHA_TEST);
+	//glAlphaFunc(GL_GREATER, .5);
+	glEnable(GL_ALPHA);
+	//glEnable(GL_CULL_FACE); // cull face
+	//glCullFace(GL_BACK); // cull back face
+	//glFrontFace(GL_CW); // GL_CCW for counter clock-wise
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	this->SpriteQuad.Draw();
 }
 
@@ -100,13 +108,13 @@ void Sprite::ScaleSprite(float x, float y)
 void Sprite::AdjustSprite()
 {
 	glBindBuffer(GL_ARRAY_BUFFER, this->SpriteQuad.VBO);
-	this->SpriteQuad.rect[0].fPositions[0] = 1024 / 2.0 + 10;
-	this->SpriteQuad.rect[0].fPositions[1] = 720 / 2.0 + 10;
-	this->SpriteQuad.rect[1].fPositions[0] = 1024 / 2.0 + 10.0;
-	this->SpriteQuad.rect[1].fPositions[1] = 720 / 2.0 - 10.0f;
-	this->SpriteQuad.rect[2].fPositions[0] = 1024 / 2.0 - 10.0f;
-	this->SpriteQuad.rect[2].fPositions[1] = 720 / 2.0 - 10.0f;
-	this->SpriteQuad.rect[3].fPositions[0] = 1024 / 2.0 - 10.0f;
-	this->SpriteQuad.rect[3].fPositions[1] = 720 / 2.0 + 10.0f;
+	this->SpriteQuad.rect[0].fPositions[0] = 1024 / 2.0 + 5;
+	this->SpriteQuad.rect[0].fPositions[1] = 720 / 2.0 + 5;
+	this->SpriteQuad.rect[1].fPositions[0] = 1024 / 2.0 + 5.0;
+	this->SpriteQuad.rect[1].fPositions[1] = 720 / 2.0 - 5.0f;
+	this->SpriteQuad.rect[2].fPositions[0] = 1024 / 2.0 - 5.0f;
+	this->SpriteQuad.rect[2].fPositions[1] = 720 / 2.0 - 5.0f;
+	this->SpriteQuad.rect[3].fPositions[0] = 1024 / 2.0 - 5.0f;
+	this->SpriteQuad.rect[3].fPositions[1] = 720 / 2.0 + 5.0f;
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex)* 4, this->SpriteQuad.rect, GL_STATIC_DRAW);
 }

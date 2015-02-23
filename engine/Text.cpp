@@ -46,6 +46,11 @@ void TextFont::CreateString(string letters, float x, float y)
 		this->textSprite[i].CreateSprite(filename);
 		this->textSprite[i].SetUVs(this->textSprite[i].SpriteQuad.uiTextureId, sheet[ascii[i]].x / sheetW, (sheetH - sheet[ascii[i]].y) / sheetH, ((sheet[ascii[i]].x + sheet[ascii[i]].width)) / sheetW, ((sheetH - sheet[ascii[i]].y) - sheet[ascii[i]].height) / sheetH);
 		this->textSprite[i].ScaleSprite(this->sheet[ascii[i]].width * 0.1f, this->sheet[ascii[i]].height * 0.1f);
+		if (i == 1) //because the offset is fucked up for the first one
+		{
+			offset += 12.0f;
+		}
+		
 		if (i > 0)
 		{
 			offset += this->sheet[ascii[i]].width + (this->sheet[ascii[i - 1]].width);
@@ -62,6 +67,14 @@ void TextFont::CreateString(string letters, float x, float y)
 
 void TextFont::DrawString()
 {
+	glEnable(GL_BLEND);
+	//glEnable(GL_ALPHA_TEST);
+	//glAlphaFunc(GL_GREATER, .5);
+	glEnable(GL_ALPHA);
+	//glEnable(GL_CULL_FACE); // cull face
+	//glCullFace(GL_BACK); // cull back face
+	//glFrontFace(GL_CW); // GL_CCW for counter clock-wise
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	for (int i = 0; i < strsize; i++)
 	{
 		this->textSprite[i].SpriteQuad.Draw();
