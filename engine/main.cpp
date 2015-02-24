@@ -24,7 +24,7 @@ int main()
 
 	//Text
 	TextFont text;
-	text.LoadDoc("textfont.xml");
+	text.LoadDoc("testFont.xml");
 	text.CreateString("Wade", 10, 50);
 	text.MoveSprite(-100,-200);
 	

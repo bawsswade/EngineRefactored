@@ -10,12 +10,12 @@ void TextFont::LoadDoc(const char* a_filename)
 	currentNode = rootNode;
 
 	childElement = currentNode->FirstChildElement("common"); //perculate
-	sheetW = childElement->IntAttribute("scaleW");
-	sheetH = childElement->IntAttribute("scaleH");
+	this->sheetW = childElement->IntAttribute("scaleW");
+	this->sheetH = childElement->IntAttribute("scaleH");
 	
 	currentNode = rootNode; //reset pointer
 	childElement = currentNode->FirstChildElement("pages")->FirstChildElement("page"); //percuate chain
-	filename = childElement->Attribute("file");
+	this->filename = childElement->Attribute("file");
 
 
 	currentNode = rootNode;  //reset pointer
@@ -25,10 +25,10 @@ void TextFont::LoadDoc(const char* a_filename)
 	while (childElement != NULL)
 	{
 		i = (int)childElement->IntAttribute("id");
-		sheet[i].width = (float)childElement->IntAttribute("width");
-		sheet[i].height = (float)childElement->IntAttribute("height");
-		sheet[i].x = (float)childElement->IntAttribute("x");
-		sheet[i].y = (float)childElement->IntAttribute("y");
+		this->sheet[i].width = (float)childElement->IntAttribute("width");
+		this->sheet[i].height = (float)childElement->IntAttribute("height");
+		this->sheet[i].x = (float)childElement->IntAttribute("x");
+		this->sheet[i].y = (float)childElement->IntAttribute("y");
 		childElement = childElement->NextSiblingElement();
 	}
 	//this->textSprite.CreateSprite(filename);
@@ -36,7 +36,8 @@ void TextFont::LoadDoc(const char* a_filename)
 
 void TextFont::CreateString(string letters, float x, float y)
 {
-	filename = "textfont_0.png";
+
+	filename = "testFont_0.png";
 	strcpy_s(c, letters.c_str());
 	strsize = letters.length();
 
