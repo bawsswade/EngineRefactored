@@ -1,0 +1,217 @@
+\hypertarget{class_animator}{}\section{Animator Class Reference}
+\label{class_animator}\index{Animator@{Animator}}
+
+
+stores atlas texture and changes sprite U\+V accordingly to perform animation  
+
+
+
+
+{\ttfamily \#include $<$Animator.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_animator_a701eeb9283612be2027425efb06bbff7}{Animator} ()
+\item 
+void \hyperlink{class_animator_a1fd520da6c552fab7ad81c4afd7146dd}{Load\+Atlas} (const char $\ast$a\+\_\+filename)
+\begin{DoxyCompactList}\small\item\em using timyxml, loads uv data into sprite\+List \end{DoxyCompactList}\item 
+void \hyperlink{class_animator_a6f3e136260dea0f094bf427ce375f52a}{Set\+Sprites} (int start\+Index, int end\+Index)
+\begin{DoxyCompactList}\small\item\em sets which uvs to use \end{DoxyCompactList}\item 
+void \hyperlink{class_animator_a39649c4a3f71cf863157e66425f0ff3f}{Draw} ()
+\begin{DoxyCompactList}\small\item\em cycles through sprite\+List and changes U\+Vs every frame \end{DoxyCompactList}\item 
+void \hyperlink{class_animator_aca02a9659e77a9094c65315546fbdb4b}{Move\+Sprite} (int x, int y)
+\begin{DoxyCompactList}\small\item\em translates sprite \end{DoxyCompactList}\item 
+\hyperlink{class_animator_a5af4797549f9f466a88657899e17c6ab}{$\sim$\+Animator} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_sprite_data}{Sprite\+Data} \hyperlink{class_animator_a489c91d2c63336faf1fac7c0ad866126}{sprite\+List} \mbox{[}\hyperlink{_animator_8h_a2e880c677ee810c3f221b3b5636ff7e0}{M\+A\+X\+S\+P\+R\+I\+T\+E}\mbox{]}
+\begin{DoxyCompactList}\small\item\em list of sprite uvs \end{DoxyCompactList}\item 
+\hyperlink{class_sprite}{Sprite} \hyperlink{class_animator_a0fef9defed4c30c0183b3c61c3a243e2}{Ani\+Sprites}
+\begin{DoxyCompactList}\small\item\em initialize sprite for animations \end{DoxyCompactList}\item 
+double \hyperlink{class_animator_aa81ac1ce666ba7a0c2510494420ab85e}{delta\+Time}
+\begin{DoxyCompactList}\small\item\em stores delta time \end{DoxyCompactList}\item 
+double \hyperlink{class_animator_ad4e7ef21255ce54402021eca4d70b203}{elapsed\+Time} = 0
+\begin{DoxyCompactList}\small\item\em elapsed time since last previous\+Time \end{DoxyCompactList}\item 
+double \hyperlink{class_animator_a65c0a630e6da7004a0cbb6d92eee7238}{previous\+Time} = 0
+\begin{DoxyCompactList}\small\item\em sets start time forswitching frames \end{DoxyCompactList}\item 
+double \hyperlink{class_animator_a955f8216878caa737846d23d8cc86ecb}{frame\+Switch} = 10
+\begin{DoxyCompactList}\small\item\em when to switch frame \end{DoxyCompactList}\item 
+int \hyperlink{class_animator_ab904a1e936e9c123c4f36077d41c515c}{start\+Frame}
+\begin{DoxyCompactList}\small\item\em starting frame \end{DoxyCompactList}\item 
+int \hyperlink{class_animator_a83bd24135d81ef8cfd5b2dfcc405d003}{frame} = 11
+\begin{DoxyCompactList}\small\item\em frame iterator \end{DoxyCompactList}\item 
+int \hyperlink{class_animator_abf1ea9056b2175f2a73be4d3db5cdee0}{end\+Frame}
+\begin{DoxyCompactList}\small\item\em end frame \end{DoxyCompactList}\item 
+int \hyperlink{class_animator_a8953adfaac5c56c94a273928189a097c}{sheet\+W}
+\item 
+int \hyperlink{class_animator_ac8c6dac49066e30e4d90af78b8c61a09}{sheet\+H}
+\begin{DoxyCompactList}\small\item\em sheet width and height \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+stores atlas texture and changes sprite U\+V accordingly to perform animation 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_animator_a701eeb9283612be2027425efb06bbff7}{}\index{Animator@{Animator}!Animator@{Animator}}
+\index{Animator@{Animator}!Animator@{Animator}}
+\subsubsection[{Animator}]{\setlength{\rightskip}{0pt plus 5cm}Animator\+::\+Animator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animator_a701eeb9283612be2027425efb06bbff7}
+\hypertarget{class_animator_a5af4797549f9f466a88657899e17c6ab}{}\index{Animator@{Animator}!````~Animator@{$\sim$\+Animator}}
+\index{````~Animator@{$\sim$\+Animator}!Animator@{Animator}}
+\subsubsection[{$\sim$\+Animator}]{\setlength{\rightskip}{0pt plus 5cm}Animator\+::$\sim$\+Animator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animator_a5af4797549f9f466a88657899e17c6ab}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_animator_a39649c4a3f71cf863157e66425f0ff3f}{}\index{Animator@{Animator}!Draw@{Draw}}
+\index{Draw@{Draw}!Animator@{Animator}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Animator\+::\+Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_animator_a39649c4a3f71cf863157e66425f0ff3f}
+
+
+cycles through sprite\+List and changes U\+Vs every frame 
+
+\hypertarget{class_animator_a1fd520da6c552fab7ad81c4afd7146dd}{}\index{Animator@{Animator}!Load\+Atlas@{Load\+Atlas}}
+\index{Load\+Atlas@{Load\+Atlas}!Animator@{Animator}}
+\subsubsection[{Load\+Atlas}]{\setlength{\rightskip}{0pt plus 5cm}void Animator\+::\+Load\+Atlas (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{a\+\_\+filename}
+\end{DoxyParamCaption}
+)}\label{class_animator_a1fd520da6c552fab7ad81c4afd7146dd}
+
+
+using timyxml, loads uv data into sprite\+List 
+
+
+\begin{DoxyParams}{Parameters}
+{\em takes} & in the filename of atlas \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_animator_aca02a9659e77a9094c65315546fbdb4b}{}\index{Animator@{Animator}!Move\+Sprite@{Move\+Sprite}}
+\index{Move\+Sprite@{Move\+Sprite}!Animator@{Animator}}
+\subsubsection[{Move\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void Animator\+::\+Move\+Sprite (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\label{class_animator_aca02a9659e77a9094c65315546fbdb4b}
+
+
+translates sprite 
+
+
+\begin{DoxyParams}{Parameters}
+{\em translate} & by x amount and y amount \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_animator_a6f3e136260dea0f094bf427ce375f52a}{}\index{Animator@{Animator}!Set\+Sprites@{Set\+Sprites}}
+\index{Set\+Sprites@{Set\+Sprites}!Animator@{Animator}}
+\subsubsection[{Set\+Sprites}]{\setlength{\rightskip}{0pt plus 5cm}void Animator\+::\+Set\+Sprites (
+\begin{DoxyParamCaption}
+\item[{int}]{start\+Index, }
+\item[{int}]{end\+Index}
+\end{DoxyParamCaption}
+)}\label{class_animator_a6f3e136260dea0f094bf427ce375f52a}
+
+
+sets which uvs to use 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & and end index to use \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_animator_a0fef9defed4c30c0183b3c61c3a243e2}{}\index{Animator@{Animator}!Ani\+Sprites@{Ani\+Sprites}}
+\index{Ani\+Sprites@{Ani\+Sprites}!Animator@{Animator}}
+\subsubsection[{Ani\+Sprites}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite} Animator\+::\+Ani\+Sprites}\label{class_animator_a0fef9defed4c30c0183b3c61c3a243e2}
+
+
+initialize sprite for animations 
+
+\hypertarget{class_animator_aa81ac1ce666ba7a0c2510494420ab85e}{}\index{Animator@{Animator}!delta\+Time@{delta\+Time}}
+\index{delta\+Time@{delta\+Time}!Animator@{Animator}}
+\subsubsection[{delta\+Time}]{\setlength{\rightskip}{0pt plus 5cm}double Animator\+::delta\+Time}\label{class_animator_aa81ac1ce666ba7a0c2510494420ab85e}
+
+
+stores delta time 
+
+\hypertarget{class_animator_ad4e7ef21255ce54402021eca4d70b203}{}\index{Animator@{Animator}!elapsed\+Time@{elapsed\+Time}}
+\index{elapsed\+Time@{elapsed\+Time}!Animator@{Animator}}
+\subsubsection[{elapsed\+Time}]{\setlength{\rightskip}{0pt plus 5cm}double Animator\+::elapsed\+Time = 0}\label{class_animator_ad4e7ef21255ce54402021eca4d70b203}
+
+
+elapsed time since last previous\+Time 
+
+\hypertarget{class_animator_abf1ea9056b2175f2a73be4d3db5cdee0}{}\index{Animator@{Animator}!end\+Frame@{end\+Frame}}
+\index{end\+Frame@{end\+Frame}!Animator@{Animator}}
+\subsubsection[{end\+Frame}]{\setlength{\rightskip}{0pt plus 5cm}int Animator\+::end\+Frame}\label{class_animator_abf1ea9056b2175f2a73be4d3db5cdee0}
+
+
+end frame 
+
+\hypertarget{class_animator_a83bd24135d81ef8cfd5b2dfcc405d003}{}\index{Animator@{Animator}!frame@{frame}}
+\index{frame@{frame}!Animator@{Animator}}
+\subsubsection[{frame}]{\setlength{\rightskip}{0pt plus 5cm}int Animator\+::frame = 11}\label{class_animator_a83bd24135d81ef8cfd5b2dfcc405d003}
+
+
+frame iterator 
+
+\hypertarget{class_animator_a955f8216878caa737846d23d8cc86ecb}{}\index{Animator@{Animator}!frame\+Switch@{frame\+Switch}}
+\index{frame\+Switch@{frame\+Switch}!Animator@{Animator}}
+\subsubsection[{frame\+Switch}]{\setlength{\rightskip}{0pt plus 5cm}double Animator\+::frame\+Switch = 10}\label{class_animator_a955f8216878caa737846d23d8cc86ecb}
+
+
+when to switch frame 
+
+\hypertarget{class_animator_a65c0a630e6da7004a0cbb6d92eee7238}{}\index{Animator@{Animator}!previous\+Time@{previous\+Time}}
+\index{previous\+Time@{previous\+Time}!Animator@{Animator}}
+\subsubsection[{previous\+Time}]{\setlength{\rightskip}{0pt plus 5cm}double Animator\+::previous\+Time = 0}\label{class_animator_a65c0a630e6da7004a0cbb6d92eee7238}
+
+
+sets start time forswitching frames 
+
+\hypertarget{class_animator_ac8c6dac49066e30e4d90af78b8c61a09}{}\index{Animator@{Animator}!sheet\+H@{sheet\+H}}
+\index{sheet\+H@{sheet\+H}!Animator@{Animator}}
+\subsubsection[{sheet\+H}]{\setlength{\rightskip}{0pt plus 5cm}int Animator\+::sheet\+H}\label{class_animator_ac8c6dac49066e30e4d90af78b8c61a09}
+
+
+sheet width and height 
+
+\hypertarget{class_animator_a8953adfaac5c56c94a273928189a097c}{}\index{Animator@{Animator}!sheet\+W@{sheet\+W}}
+\index{sheet\+W@{sheet\+W}!Animator@{Animator}}
+\subsubsection[{sheet\+W}]{\setlength{\rightskip}{0pt plus 5cm}int Animator\+::sheet\+W}\label{class_animator_a8953adfaac5c56c94a273928189a097c}
+\hypertarget{class_animator_a489c91d2c63336faf1fac7c0ad866126}{}\index{Animator@{Animator}!sprite\+List@{sprite\+List}}
+\index{sprite\+List@{sprite\+List}!Animator@{Animator}}
+\subsubsection[{sprite\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite\+Data} Animator\+::sprite\+List\mbox{[}{\bf M\+A\+X\+S\+P\+R\+I\+T\+E}\mbox{]}}\label{class_animator_a489c91d2c63336faf1fac7c0ad866126}
+
+
+list of sprite uvs 
+
+\hypertarget{class_animator_ab904a1e936e9c123c4f36077d41c515c}{}\index{Animator@{Animator}!start\+Frame@{start\+Frame}}
+\index{start\+Frame@{start\+Frame}!Animator@{Animator}}
+\subsubsection[{start\+Frame}]{\setlength{\rightskip}{0pt plus 5cm}int Animator\+::start\+Frame}\label{class_animator_ab904a1e936e9c123c4f36077d41c515c}
+
+
+starting frame 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_animator_8h}{Animator.\+h}\item 
+\hyperlink{_animator_8cpp}{Animator.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,143 @@
+\hypertarget{class_text_font}{}\section{Text\+Font Class Reference}
+\label{class_text_font}\index{Text\+Font@{Text\+Font}}
+
+
+loads and stores an atlas of letters to draw a string  
+
+
+
+
+{\ttfamily \#include $<$Text.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_text_font_acee7cc3de831d46a13bf2a1b8b2ef7f7}{Text\+Font} ()
+\item 
+void \hyperlink{class_text_font_aa2744efbcefdf7eeb6df43e57ba6c773}{Load\+Doc} (const char $\ast$a\+\_\+filename)
+\begin{DoxyCompactList}\small\item\em extracts data from xml file \end{DoxyCompactList}\item 
+void \hyperlink{class_text_font_a93ee1baed83e589ab49d68efdcabfd84}{Draw\+String} ()
+\begin{DoxyCompactList}\small\item\em draws all character sprites \end{DoxyCompactList}\item 
+void \hyperlink{class_text_font_a43116fad524ee016b375c58fa0b6b699}{Create\+String} (string letters, float x, float y)
+\begin{DoxyCompactList}\small\item\em creates sprite for each char, sets uvs to be used, and scales and translates accordingly \end{DoxyCompactList}\item 
+void \hyperlink{class_text_font_a3bdc49e8f6f05a5c7d5dd3b50abc01f5}{Move\+Sprite} (float x, float y)
+\begin{DoxyCompactList}\small\item\em moves sprites \end{DoxyCompactList}\item 
+\hyperlink{class_text_font_afbd66b50c68b85627168568350bdcddb}{$\sim$\+Text\+Font} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{class_text_font_aaebd54035eee5aa855121ab064819fdc}{filename}
+\begin{DoxyCompactList}\small\item\em stores filename of texture \end{DoxyCompactList}\item 
+map$<$ int, \hyperlink{struct_text_sheet}{Text\+Sheet} $>$ \hyperlink{class_text_font_af4443d0b3f781dd5cc41387e58939a89}{sheet}
+\begin{DoxyCompactList}\small\item\em map of letter data \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+loads and stores an atlas of letters to draw a string 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_text_font_acee7cc3de831d46a13bf2a1b8b2ef7f7}{}\index{Text\+Font@{Text\+Font}!Text\+Font@{Text\+Font}}
+\index{Text\+Font@{Text\+Font}!Text\+Font@{Text\+Font}}
+\subsubsection[{Text\+Font}]{\setlength{\rightskip}{0pt plus 5cm}Text\+Font\+::\+Text\+Font (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_text_font_acee7cc3de831d46a13bf2a1b8b2ef7f7}
+\hypertarget{class_text_font_afbd66b50c68b85627168568350bdcddb}{}\index{Text\+Font@{Text\+Font}!````~Text\+Font@{$\sim$\+Text\+Font}}
+\index{````~Text\+Font@{$\sim$\+Text\+Font}!Text\+Font@{Text\+Font}}
+\subsubsection[{$\sim$\+Text\+Font}]{\setlength{\rightskip}{0pt plus 5cm}Text\+Font\+::$\sim$\+Text\+Font (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_text_font_afbd66b50c68b85627168568350bdcddb}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_text_font_a43116fad524ee016b375c58fa0b6b699}{}\index{Text\+Font@{Text\+Font}!Create\+String@{Create\+String}}
+\index{Create\+String@{Create\+String}!Text\+Font@{Text\+Font}}
+\subsubsection[{Create\+String}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+Font\+::\+Create\+String (
+\begin{DoxyParamCaption}
+\item[{string}]{letters, }
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)}\label{class_text_font_a43116fad524ee016b375c58fa0b6b699}
+
+
+creates sprite for each char, sets uvs to be used, and scales and translates accordingly 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & to be drawn \\
+\hline
+{\em x} & and y location to be drawn \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_text_font_a93ee1baed83e589ab49d68efdcabfd84}{}\index{Text\+Font@{Text\+Font}!Draw\+String@{Draw\+String}}
+\index{Draw\+String@{Draw\+String}!Text\+Font@{Text\+Font}}
+\subsubsection[{Draw\+String}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+Font\+::\+Draw\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_text_font_a93ee1baed83e589ab49d68efdcabfd84}
+
+
+draws all character sprites 
+
+\hypertarget{class_text_font_aa2744efbcefdf7eeb6df43e57ba6c773}{}\index{Text\+Font@{Text\+Font}!Load\+Doc@{Load\+Doc}}
+\index{Load\+Doc@{Load\+Doc}!Text\+Font@{Text\+Font}}
+\subsubsection[{Load\+Doc}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+Font\+::\+Load\+Doc (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{a\+\_\+filename}
+\end{DoxyParamCaption}
+)}\label{class_text_font_aa2744efbcefdf7eeb6df43e57ba6c773}
+
+
+extracts data from xml file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em takes} & in filename to be loaded \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_text_font_a3bdc49e8f6f05a5c7d5dd3b50abc01f5}{}\index{Text\+Font@{Text\+Font}!Move\+Sprite@{Move\+Sprite}}
+\index{Move\+Sprite@{Move\+Sprite}!Text\+Font@{Text\+Font}}
+\subsubsection[{Move\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+Font\+::\+Move\+Sprite (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)}\label{class_text_font_a3bdc49e8f6f05a5c7d5dd3b50abc01f5}
+
+
+moves sprites 
+
+
+\begin{DoxyParams}{Parameters}
+{\em translates} & by x and y amount \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_text_font_aaebd54035eee5aa855121ab064819fdc}{}\index{Text\+Font@{Text\+Font}!filename@{filename}}
+\index{filename@{filename}!Text\+Font@{Text\+Font}}
+\subsubsection[{filename}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ Text\+Font\+::filename}\label{class_text_font_aaebd54035eee5aa855121ab064819fdc}
+
+
+stores filename of texture 
+
+\hypertarget{class_text_font_af4443d0b3f781dd5cc41387e58939a89}{}\index{Text\+Font@{Text\+Font}!sheet@{sheet}}
+\index{sheet@{sheet}!Text\+Font@{Text\+Font}}
+\subsubsection[{sheet}]{\setlength{\rightskip}{0pt plus 5cm}map$<$int, {\bf Text\+Sheet}$>$ Text\+Font\+::sheet}\label{class_text_font_af4443d0b3f781dd5cc41387e58939a89}
+
+
+map of letter data 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_text_8h}{Text.\+h}\item 
+\hyperlink{_text_8cpp}{Text.\+cpp}\end{DoxyCompactItemize}

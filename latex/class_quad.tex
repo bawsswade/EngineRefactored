@@ -1,0 +1,131 @@
+\hypertarget{class_quad}{}\section{Quad Class Reference}
+\label{class_quad}\index{Quad@{Quad}}
+
+
+creates verticies and shaders for quad and stores them in the V\+B\+O  
+
+
+
+
+{\ttfamily \#include $<$quad.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_quad_ae446d188d645cc5c512336f25d1a697a}{Quad} ()
+\item 
+void \hyperlink{class_quad_a4febbb07741319565e1ee7abe8ab4674}{Draw} ()
+\begin{DoxyCompactList}\small\item\em enables shader program, vertex data, and texture to draw quad. \end{DoxyCompactList}\item 
+\hyperlink{class_quad_a5db77c0481b30c0b7c1014cc535284ad}{$\sim$\+Quad} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{class_quad_af710bcaf3209f47cb75dfed003604fd4}{V\+B\+O}
+\begin{DoxyCompactList}\small\item\em \hyperlink{struct_vertex}{Vertex} Buffer Object to store quad data. \end{DoxyCompactList}\item 
+\hyperlink{struct_vertex}{Vertex} \hyperlink{class_quad_afaed261444ab07e840d903baff5c0624}{rect} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em vertex array that holds vertex data \end{DoxyCompactList}\item 
+G\+Luint \hyperlink{class_quad_a04b4a7628b803cdedfac290a26e97f75}{ui\+Texture\+Id}
+\begin{DoxyCompactList}\small\item\em quad\textquotesingle{}s texture id \end{DoxyCompactList}\item 
+\hyperlink{_sprite_8h_a2db59f395fe82a7394c6324956c265d8}{glm\+::mat4} \hyperlink{class_quad_a412bc084a6c764c235b546be5fc4a7b6}{M\+V\+P}
+\item 
+\hyperlink{_sprite_8h_a2db59f395fe82a7394c6324956c265d8}{glm\+::mat4} \hyperlink{class_quad_a31981a73c8503bf906450ab2caadd32b}{Model}
+\item 
+\hyperlink{_sprite_8h_a2db59f395fe82a7394c6324956c265d8}{glm\+::mat4} \hyperlink{class_quad_a25e399068755865ba1e2c25d01837863}{View}
+\begin{DoxyCompactList}\small\item\em matricies for matrix math \end{DoxyCompactList}\item 
+\hyperlink{_sprite_8h_a3d0ce73e3199de81565fb01632415288}{glm\+::vec3} \hyperlink{class_quad_a71b5296b41053bfc400e08c579997c0f}{m\+\_\+transate}
+\item 
+\hyperlink{_sprite_8h_a3d0ce73e3199de81565fb01632415288}{glm\+::vec3} \hyperlink{class_quad_a94d9fe0e5fa32916ab80f263a3dc43b4}{m\+\_\+scale}
+\item 
+\hyperlink{_sprite_8h_a3d0ce73e3199de81565fb01632415288}{glm\+::vec3} \hyperlink{class_quad_a0f056585749e1e4af52ea80c9e450353}{m\+\_\+rotate}
+\begin{DoxyCompactList}\small\item\em vectors for transform math \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+creates verticies and shaders for quad and stores them in the V\+B\+O 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_quad_ae446d188d645cc5c512336f25d1a697a}{}\index{Quad@{Quad}!Quad@{Quad}}
+\index{Quad@{Quad}!Quad@{Quad}}
+\subsubsection[{Quad}]{\setlength{\rightskip}{0pt plus 5cm}Quad\+::\+Quad (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_quad_ae446d188d645cc5c512336f25d1a697a}
+\hypertarget{class_quad_a5db77c0481b30c0b7c1014cc535284ad}{}\index{Quad@{Quad}!````~Quad@{$\sim$\+Quad}}
+\index{````~Quad@{$\sim$\+Quad}!Quad@{Quad}}
+\subsubsection[{$\sim$\+Quad}]{\setlength{\rightskip}{0pt plus 5cm}Quad\+::$\sim$\+Quad (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_quad_a5db77c0481b30c0b7c1014cc535284ad}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_quad_a4febbb07741319565e1ee7abe8ab4674}{}\index{Quad@{Quad}!Draw@{Draw}}
+\index{Draw@{Draw}!Quad@{Quad}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Quad\+::\+Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_quad_a4febbb07741319565e1ee7abe8ab4674}
+
+
+enables shader program, vertex data, and texture to draw quad. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_quad_a0f056585749e1e4af52ea80c9e450353}{}\index{Quad@{Quad}!m\+\_\+rotate@{m\+\_\+rotate}}
+\index{m\+\_\+rotate@{m\+\_\+rotate}!Quad@{Quad}}
+\subsubsection[{m\+\_\+rotate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf glm\+::vec3} Quad\+::m\+\_\+rotate}\label{class_quad_a0f056585749e1e4af52ea80c9e450353}
+
+
+vectors for transform math 
+
+\hypertarget{class_quad_a94d9fe0e5fa32916ab80f263a3dc43b4}{}\index{Quad@{Quad}!m\+\_\+scale@{m\+\_\+scale}}
+\index{m\+\_\+scale@{m\+\_\+scale}!Quad@{Quad}}
+\subsubsection[{m\+\_\+scale}]{\setlength{\rightskip}{0pt plus 5cm}{\bf glm\+::vec3} Quad\+::m\+\_\+scale}\label{class_quad_a94d9fe0e5fa32916ab80f263a3dc43b4}
+\hypertarget{class_quad_a71b5296b41053bfc400e08c579997c0f}{}\index{Quad@{Quad}!m\+\_\+transate@{m\+\_\+transate}}
+\index{m\+\_\+transate@{m\+\_\+transate}!Quad@{Quad}}
+\subsubsection[{m\+\_\+transate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf glm\+::vec3} Quad\+::m\+\_\+transate}\label{class_quad_a71b5296b41053bfc400e08c579997c0f}
+\hypertarget{class_quad_a31981a73c8503bf906450ab2caadd32b}{}\index{Quad@{Quad}!Model@{Model}}
+\index{Model@{Model}!Quad@{Quad}}
+\subsubsection[{Model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf glm\+::mat4} Quad\+::\+Model}\label{class_quad_a31981a73c8503bf906450ab2caadd32b}
+\hypertarget{class_quad_a412bc084a6c764c235b546be5fc4a7b6}{}\index{Quad@{Quad}!M\+V\+P@{M\+V\+P}}
+\index{M\+V\+P@{M\+V\+P}!Quad@{Quad}}
+\subsubsection[{M\+V\+P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf glm\+::mat4} Quad\+::\+M\+V\+P}\label{class_quad_a412bc084a6c764c235b546be5fc4a7b6}
+\hypertarget{class_quad_afaed261444ab07e840d903baff5c0624}{}\index{Quad@{Quad}!rect@{rect}}
+\index{rect@{rect}!Quad@{Quad}}
+\subsubsection[{rect}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vertex} Quad\+::rect\mbox{[}4\mbox{]}}\label{class_quad_afaed261444ab07e840d903baff5c0624}
+
+
+vertex array that holds vertex data 
+
+\hypertarget{class_quad_a04b4a7628b803cdedfac290a26e97f75}{}\index{Quad@{Quad}!ui\+Texture\+Id@{ui\+Texture\+Id}}
+\index{ui\+Texture\+Id@{ui\+Texture\+Id}!Quad@{Quad}}
+\subsubsection[{ui\+Texture\+Id}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Quad\+::ui\+Texture\+Id}\label{class_quad_a04b4a7628b803cdedfac290a26e97f75}
+
+
+quad\textquotesingle{}s texture id 
+
+\hypertarget{class_quad_af710bcaf3209f47cb75dfed003604fd4}{}\index{Quad@{Quad}!V\+B\+O@{V\+B\+O}}
+\index{V\+B\+O@{V\+B\+O}!Quad@{Quad}}
+\subsubsection[{V\+B\+O}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Quad\+::\+V\+B\+O}\label{class_quad_af710bcaf3209f47cb75dfed003604fd4}
+
+
+\hyperlink{struct_vertex}{Vertex} Buffer Object to store quad data. 
+
+\hypertarget{class_quad_a25e399068755865ba1e2c25d01837863}{}\index{Quad@{Quad}!View@{View}}
+\index{View@{View}!Quad@{Quad}}
+\subsubsection[{View}]{\setlength{\rightskip}{0pt plus 5cm}{\bf glm\+::mat4} Quad\+::\+View}\label{class_quad_a25e399068755865ba1e2c25d01837863}
+
+
+matricies for matrix math 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{quad_8h}{quad.\+h}\item 
+\hyperlink{quad_8cpp}{quad.\+cpp}\end{DoxyCompactItemize}

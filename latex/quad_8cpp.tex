@@ -1,0 +1,108 @@
+\hypertarget{quad_8cpp}{}\section{quad.\+cpp File Reference}
+\label{quad_8cpp}\index{quad.\+cpp@{quad.\+cpp}}
+{\ttfamily \#include \char`\"{}quad.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{quad_8cpp_a4fa209694361959d09cd504f86d2466f}{Initialize} (const char $\ast$window\+Title, int window\+Width, int window\+Height)
+\begin{DoxyCompactList}\small\item\em initilizes and creates glfw window with error checking \end{DoxyCompactList}\item 
+bool \hyperlink{quad_8cpp_a130105f5407c84602eea0f49c05ca397}{Framework\+Update} ()
+\begin{DoxyCompactList}\small\item\em returns if the window should close \end{DoxyCompactList}\item 
+void \hyperlink{quad_8cpp_adbf0ac289c6c48a75de9d75dc34e9ace}{Orthographic} (float a\+\_\+f\+Left, float a\+\_\+f\+Right, float a\+\_\+f\+Top, float a\+\_\+f\+Bottom, float a\+\_\+f\+Near, float a\+\_\+f\+Far, \hyperlink{_sprite_8h_a2db59f395fe82a7394c6324956c265d8}{glm\+::mat4} \&mat)
+\begin{DoxyCompactList}\small\item\em changes data of vertex points to an orthographic projection \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{quad_8cpp_a2474a5474cbff19523a51eb1de01cda4}{width}
+\begin{DoxyCompactList}\small\item\em gloabal variables for widndow width and height \end{DoxyCompactList}\item 
+int \hyperlink{quad_8cpp_ad12fc34ce789bce6c8a05d8a17138534}{height}
+\item 
+G\+L\+F\+Wwindow $\ast$ \hyperlink{quad_8cpp_a80de27bd7dc4e2b2ad3d5895b97a70f0}{window}
+\begin{DoxyCompactList}\small\item\em global variable for G\+L\+F\+W window \end{DoxyCompactList}\item 
+\hyperlink{_sprite_8h_a2db59f395fe82a7394c6324956c265d8}{glm\+::mat4} \hyperlink{quad_8cpp_ad89bd72040d0dfc083b4176db9b3a631}{Ortho}
+\begin{DoxyCompactList}\small\item\em global matrix of a matrix of size 4x4 for orhtographic projection calculation \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{quad_8cpp_a130105f5407c84602eea0f49c05ca397}{}\index{quad.\+cpp@{quad.\+cpp}!Framework\+Update@{Framework\+Update}}
+\index{Framework\+Update@{Framework\+Update}!quad.\+cpp@{quad.\+cpp}}
+\subsubsection[{Framework\+Update}]{\setlength{\rightskip}{0pt plus 5cm}bool Framework\+Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{quad_8cpp_a130105f5407c84602eea0f49c05ca397}
+
+
+returns if the window should close 
+
+\hypertarget{quad_8cpp_a4fa209694361959d09cd504f86d2466f}{}\index{quad.\+cpp@{quad.\+cpp}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!quad.\+cpp@{quad.\+cpp}}
+\subsubsection[{Initialize}]{\setlength{\rightskip}{0pt plus 5cm}void Initialize (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{window\+Title, }
+\item[{int}]{window\+Width, }
+\item[{int}]{window\+Height}
+\end{DoxyParamCaption}
+)}\label{quad_8cpp_a4fa209694361959d09cd504f86d2466f}
+
+
+initilizes and creates glfw window with error checking 
+
+
+\begin{DoxyParams}{Parameters}
+{\em takes} & in the name of window \\
+\hline
+{\em window} & width \\
+\hline
+{\em window} & height \\
+\hline
+\end{DoxyParams}
+\hypertarget{quad_8cpp_adbf0ac289c6c48a75de9d75dc34e9ace}{}\index{quad.\+cpp@{quad.\+cpp}!Orthographic@{Orthographic}}
+\index{Orthographic@{Orthographic}!quad.\+cpp@{quad.\+cpp}}
+\subsubsection[{Orthographic}]{\setlength{\rightskip}{0pt plus 5cm}void Orthographic (
+\begin{DoxyParamCaption}
+\item[{float}]{a\+\_\+f\+Left, }
+\item[{float}]{a\+\_\+f\+Right, }
+\item[{float}]{a\+\_\+f\+Top, }
+\item[{float}]{a\+\_\+f\+Bottom, }
+\item[{float}]{a\+\_\+f\+Near, }
+\item[{float}]{a\+\_\+f\+Far, }
+\item[{{\bf glm\+::mat4} \&}]{mat}
+\end{DoxyParamCaption}
+)}\label{quad_8cpp_adbf0ac289c6c48a75de9d75dc34e9ace}
+
+
+changes data of vertex points to an orthographic projection 
+
+
+\begin{DoxyParams}{Parameters}
+{\em takes} & left, right, top, bottom, near, and far position and saves to mat \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\hypertarget{quad_8cpp_ad12fc34ce789bce6c8a05d8a17138534}{}\index{quad.\+cpp@{quad.\+cpp}!height@{height}}
+\index{height@{height}!quad.\+cpp@{quad.\+cpp}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}int height}\label{quad_8cpp_ad12fc34ce789bce6c8a05d8a17138534}
+\hypertarget{quad_8cpp_ad89bd72040d0dfc083b4176db9b3a631}{}\index{quad.\+cpp@{quad.\+cpp}!Ortho@{Ortho}}
+\index{Ortho@{Ortho}!quad.\+cpp@{quad.\+cpp}}
+\subsubsection[{Ortho}]{\setlength{\rightskip}{0pt plus 5cm}{\bf glm\+::mat4} Ortho}\label{quad_8cpp_ad89bd72040d0dfc083b4176db9b3a631}
+
+
+global matrix of a matrix of size 4x4 for orhtographic projection calculation 
+
+\hypertarget{quad_8cpp_a2474a5474cbff19523a51eb1de01cda4}{}\index{quad.\+cpp@{quad.\+cpp}!width@{width}}
+\index{width@{width}!quad.\+cpp@{quad.\+cpp}}
+\subsubsection[{width}]{\setlength{\rightskip}{0pt plus 5cm}int width}\label{quad_8cpp_a2474a5474cbff19523a51eb1de01cda4}
+
+
+gloabal variables for widndow width and height 
+
+\hypertarget{quad_8cpp_a80de27bd7dc4e2b2ad3d5895b97a70f0}{}\index{quad.\+cpp@{quad.\+cpp}!window@{window}}
+\index{window@{window}!quad.\+cpp@{quad.\+cpp}}
+\subsubsection[{window}]{\setlength{\rightskip}{0pt plus 5cm}G\+L\+F\+Wwindow$\ast$ window}\label{quad_8cpp_a80de27bd7dc4e2b2ad3d5895b97a70f0}
+
+
+global variable for G\+L\+F\+W window 
+

@@ -1,0 +1,153 @@
+\hypertarget{class_sprite}{}\section{Sprite Class Reference}
+\label{class_sprite}\index{Sprite@{Sprite}}
+
+
+reads and creates texture for a quad  
+
+
+
+
+{\ttfamily \#include $<$Sprite.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sprite_a12cba3ac1868418add3c4d95ce87e615}{Sprite} ()
+\item 
+void \hyperlink{class_sprite_ad9cb3e4978cec898aedcc0126642e2d2}{Create\+Sprite} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em enables shader program, vertex data, and texture to draw quad \end{DoxyCompactList}\item 
+void \hyperlink{class_sprite_a550265943afb5e79fd76f1c163fb9415}{Set\+U\+Vs} (unsigned int sprite\+Id, float top\+X, float top\+Y, float bottom\+X, float bottom\+Y)
+\begin{DoxyCompactList}\small\item\em sets the uvs of the texture being used \end{DoxyCompactList}\item 
+void \hyperlink{class_sprite_a054a4c340c14c3d218b99e484bf83d21}{Draw} ()
+\begin{DoxyCompactList}\small\item\em calls quad.\+draw() \end{DoxyCompactList}\item 
+void \hyperlink{class_sprite_aa803a9eae66b98130f2ef589db24692a}{Move\+Sprite} (float x, float y)
+\begin{DoxyCompactList}\small\item\em ability to adjust the x position adn y position of sprite \end{DoxyCompactList}\item 
+void \hyperlink{class_sprite_acf9da4f7a3caf15004f69c9bcc696b5c}{Scale\+Sprite} (float x, float y)
+\item 
+void \hyperlink{class_sprite_a7f4858ef8ab1aa9caf60522b6c89cf9c}{Adjust\+Sprite} ()
+\item 
+\hyperlink{class_sprite_a8accab430f9d90ae5117b57d67e32b84}{$\sim$\+Sprite} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_quad}{Quad} \hyperlink{class_sprite_a263d37687035ace0db0909f0090dad45}{Sprite\+Quad}
+\begin{DoxyCompactList}\small\item\em creates quad to attach texture \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+reads and creates texture for a quad 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_sprite_a12cba3ac1868418add3c4d95ce87e615}{}\index{Sprite@{Sprite}!Sprite@{Sprite}}
+\index{Sprite@{Sprite}!Sprite@{Sprite}}
+\subsubsection[{Sprite}]{\setlength{\rightskip}{0pt plus 5cm}Sprite\+::\+Sprite (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_sprite_a12cba3ac1868418add3c4d95ce87e615}
+\hypertarget{class_sprite_a8accab430f9d90ae5117b57d67e32b84}{}\index{Sprite@{Sprite}!````~Sprite@{$\sim$\+Sprite}}
+\index{````~Sprite@{$\sim$\+Sprite}!Sprite@{Sprite}}
+\subsubsection[{$\sim$\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}Sprite\+::$\sim$\+Sprite (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_sprite_a8accab430f9d90ae5117b57d67e32b84}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_sprite_a7f4858ef8ab1aa9caf60522b6c89cf9c}{}\index{Sprite@{Sprite}!Adjust\+Sprite@{Adjust\+Sprite}}
+\index{Adjust\+Sprite@{Adjust\+Sprite}!Sprite@{Sprite}}
+\subsubsection[{Adjust\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void Sprite\+::\+Adjust\+Sprite (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_sprite_a7f4858ef8ab1aa9caf60522b6c89cf9c}
+\hypertarget{class_sprite_ad9cb3e4978cec898aedcc0126642e2d2}{}\index{Sprite@{Sprite}!Create\+Sprite@{Create\+Sprite}}
+\index{Create\+Sprite@{Create\+Sprite}!Sprite@{Sprite}}
+\subsubsection[{Create\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void Sprite\+::\+Create\+Sprite (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\label{class_sprite_ad9cb3e4978cec898aedcc0126642e2d2}
+
+
+enables shader program, vertex data, and texture to draw quad 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & name of texture \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_sprite_a054a4c340c14c3d218b99e484bf83d21}{}\index{Sprite@{Sprite}!Draw@{Draw}}
+\index{Draw@{Draw}!Sprite@{Sprite}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Sprite\+::\+Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_sprite_a054a4c340c14c3d218b99e484bf83d21}
+
+
+calls quad.\+draw() 
+
+\hypertarget{class_sprite_aa803a9eae66b98130f2ef589db24692a}{}\index{Sprite@{Sprite}!Move\+Sprite@{Move\+Sprite}}
+\index{Move\+Sprite@{Move\+Sprite}!Sprite@{Sprite}}
+\subsubsection[{Move\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void Sprite\+::\+Move\+Sprite (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)}\label{class_sprite_aa803a9eae66b98130f2ef589db24692a}
+
+
+ability to adjust the x position adn y position of sprite 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & and y translation \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_sprite_acf9da4f7a3caf15004f69c9bcc696b5c}{}\index{Sprite@{Sprite}!Scale\+Sprite@{Scale\+Sprite}}
+\index{Scale\+Sprite@{Scale\+Sprite}!Sprite@{Sprite}}
+\subsubsection[{Scale\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void Sprite\+::\+Scale\+Sprite (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)}\label{class_sprite_acf9da4f7a3caf15004f69c9bcc696b5c}
+\hypertarget{class_sprite_a550265943afb5e79fd76f1c163fb9415}{}\index{Sprite@{Sprite}!Set\+U\+Vs@{Set\+U\+Vs}}
+\index{Set\+U\+Vs@{Set\+U\+Vs}!Sprite@{Sprite}}
+\subsubsection[{Set\+U\+Vs}]{\setlength{\rightskip}{0pt plus 5cm}void Sprite\+::\+Set\+U\+Vs (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{sprite\+Id, }
+\item[{float}]{top\+X, }
+\item[{float}]{top\+Y, }
+\item[{float}]{bottom\+X, }
+\item[{float}]{bottom\+Y}
+\end{DoxyParamCaption}
+)}\label{class_sprite_a550265943afb5e79fd76f1c163fb9415}
+
+
+sets the uvs of the texture being used 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+I\+D,top} & x and y, bottom x and y \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_sprite_a263d37687035ace0db0909f0090dad45}{}\index{Sprite@{Sprite}!Sprite\+Quad@{Sprite\+Quad}}
+\index{Sprite\+Quad@{Sprite\+Quad}!Sprite@{Sprite}}
+\subsubsection[{Sprite\+Quad}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Quad} Sprite\+::\+Sprite\+Quad}\label{class_sprite_a263d37687035ace0db0909f0090dad45}
+
+
+creates quad to attach texture 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sprite_8h}{Sprite.\+h}\item 
+\hyperlink{_sprite_8cpp}{Sprite.\+cpp}\end{DoxyCompactItemize}
